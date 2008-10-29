@@ -1,0 +1,50 @@
+README
+------
+
+This is an implementation of the Adaptive Huffman compression algorithm
+in the Objective Caml language (www.ocaml.org).
+
+Installation
+------------
+
+Compile the program with
+
+  ocamlc -o huff huffman.ml
+  
+where 'huff' can be replaced with an arbitrary name.
+On windows, you should specify something like "huff.exe".
+This compiles a byte-code version of the program. An
+optimized (native code) version can be compiled with
+
+  ocamlopt -o huff huffman.ml
+  
+Running the program
+-------------------
+
+Run the program with
+
+  huff cmd in out [some_file.xml]
+  
+  where
+  - cmd is either enc (encode/compress) or dec (decode/uncompress)
+  - in is the input file
+  - out is the target file
+  - and optionally, some_file.xml is where the Huffman tree will be dumped,
+    if the file is specified. this works well for simple text files but
+    may break if complex text is compressed/uncompressed
+    
+Examples
+--------
+
+- huff enc mytext.txt mytext.compressed
+- huff enc mytext.compressed mytext.uncompressed
+
+etc...
+
+Misc
+----
+
+This program was developed on Windows using Objective Caml v3.06
+and tested on both Windows and Linux.
+
+(C) Jari Aarniala, 2003 (jari.aarniala@cs.helsinki.fi)
